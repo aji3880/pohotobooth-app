@@ -29,6 +29,14 @@ pipeline {
             }
         }
 
+        stage('Assign SCC') {
+            steps {
+                sh """
+                oc adm policy add-scc-to-user restricted-v2 -z default -n ${NAMESPACE}
+                """
+            }
+        }
+
         stage('buildconfig') {
             steps {
                 sh """
