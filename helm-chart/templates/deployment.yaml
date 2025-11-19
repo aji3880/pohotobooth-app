@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "photobooth-app.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "photobooth-app.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "photobooth-app.name" . }}
+    spec:
+      containers:
+      - name: photobooth
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 80
+        imagePullPolicy: {{ .Values.image.pullPolicy }}

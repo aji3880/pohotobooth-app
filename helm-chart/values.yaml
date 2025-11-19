@@ -1,0 +1,11 @@
+replicaCount: 1
+image:
+  repository: photobooth-app
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+route:
+  enabled: true
+  host: photobooth-app.apps.cluster-9f294.dynamic.redhatworkshops.io

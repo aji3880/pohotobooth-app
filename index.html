@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobooth App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Photo</h1>
+        <div class="photobooth">
+            <video id="video" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div class="controls">
+                <button id="captureBtn">Capture Photo</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+        </div>
+        <div class="gallery">
+            <h2>Your Photos</h2>
+            <div id="photoGallery"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
