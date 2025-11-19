@@ -8,6 +8,9 @@ spec:
     matchLabels:
       app: {{ include "photobooth-app.name" . }}
   template:
+    spec:
+      securityContext:
+        runAsUser: 0
     metadata:
       labels:
         app: {{ include "photobooth-app.name" . }}
@@ -18,3 +21,5 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          runAsUser: 0
